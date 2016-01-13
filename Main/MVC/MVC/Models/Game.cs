@@ -14,7 +14,7 @@ namespace MVC.Models
         public int Done { get; set; }
     }
 
-    public class MovieDBContext : DbContext
+    public class GameDBContext : DbContext
     {
         public DbSet<Game> Movies { get; set; }
     }
