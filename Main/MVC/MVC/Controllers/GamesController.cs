@@ -17,7 +17,7 @@ namespace MVC.Controllers
         // GET: Games
         public ActionResult Index()
         {
-            return View(db.Movies.ToList());
+            return View(db.Games.ToList());
         }
 
         // GET: Games/Details/5
@@ -27,7 +27,7 @@ namespace MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Movies.Find(id);
+            Game game = db.Games.Find(id);
             if (game == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Movies.Add(game);
+                db.Games.Add(game);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Movies.Find(id);
+            Game game = db.Games.Find(id);
             if (game == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Movies.Find(id);
+            Game game = db.Games.Find(id);
             if (game == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Game game = db.Movies.Find(id);
-            db.Movies.Remove(game);
+            Game game = db.Games.Find(id);
+            db.Games.Remove(game);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
