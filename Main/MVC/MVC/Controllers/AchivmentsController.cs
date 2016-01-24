@@ -17,8 +17,23 @@ namespace MVC.Controllers
         // GET: Achivments
         public ActionResult Index()
         {
-            var achivments = db.Achivments.Include(a => a.Game);
-            return View(achivments.ToList());
+            if (Session["achivy"] != null)
+            {
+                var searchString = Session["achivy"].ToString();
+
+                var achivments = db.Achivments.Include(a => a.Game);
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    int id = Int32.Parse(searchString);
+                    achivments = achivments.Where(s => s.GameID == id);
+                }
+                Session["achivy"] = null;
+                return View(achivments.ToList());
+            }
+            else {
+                var achivments2 = db.Achivments.Include(a => a.Game);
+                return View(achivments2.ToList());
+            }
         }
 
         // GET: Achivments/Details/5

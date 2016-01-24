@@ -57,6 +57,14 @@ namespace MVC.Controllers
             return View(game);
         }
 
+
+        public ActionResult GamesAchivments(int? id)
+        {
+            Session["achivy"] = id;
+            return RedirectToAction("Index", "Achivments");
+        }
+
+
         // GET: Games/Create
         public ActionResult Create()
         {

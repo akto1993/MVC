@@ -44,6 +44,18 @@ namespace MVC.Migrations
                    Price = 249
                }
             );
+
+
+
+
+            context.Achivments.AddOrUpdate(i => i.AchivmentTitle,
+               new Achivment
+               {
+                   GameID = 1,
+                   AchivmentTitle = "wawaa",
+                   AchivmentDescription = "japierdole"
+               }
+            );
         }
     }
 }

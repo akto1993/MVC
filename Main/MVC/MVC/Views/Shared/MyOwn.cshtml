@@ -8,7 +8,15 @@
             <li>
                 @Html.ActionLink("Show Achivments", "Index", "Achivments")
             </li>
+            @if (Session["admin"] != null)
+            {
+                if (Session["admin"].ToString() == "akto1993@gmail.com")
+                {
+                    <li style ="color: white;">
+                        witaj Administratorze!
+                    </li>
+                }
+            }
 
         </ul>
 }
-

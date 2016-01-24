@@ -67,7 +67,15 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @if (Session["admin"] != null)
+            {
+                if (Session["admin"].ToString() == "akto1993@gmail.com")
+                {
+                    @Html.ActionLink("Delete ", "Delete", new { id = item.ID }) 
+                    @Html.Label(" | ")
+                }
+            }
+            @Html.ActionLink("Show Achivments", "GamesAchivments", new { id = item.ID })
         </td>
     </tr>
 }

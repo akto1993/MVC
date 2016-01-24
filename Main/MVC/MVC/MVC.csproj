@@ -195,6 +195,10 @@
     <Compile Include="Migrations\201601241930542_tebelki.Designer.cs">
       <DependentUpon>201601241930542_tebelki.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601242207411_tebelki1.cs" />
+    <Compile Include="Migrations\201601242207411_tebelki1.Designer.cs">
+      <DependentUpon>201601242207411_tebelki1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Achivment.cs" />
@@ -203,6 +207,7 @@
     <Compile Include="Models\Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Validators\MyValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -299,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601241930542_tebelki.resx">
       <DependentUpon>201601241930542_tebelki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601242207411_tebelki1.resx">
+      <DependentUpon>201601242207411_tebelki1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

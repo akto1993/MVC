@@ -1,10 +1,13 @@
-﻿using System;
+﻿using MVC.Validators;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 
 
+
 namespace MVC.Models
 {
+    using MVC.Validators;
     public class Achivment
     {
         public int AchivmentID { get; set; }
@@ -14,7 +17,7 @@ namespace MVC.Models
         [StringLength(60, MinimumLength = 3)]
         public string AchivmentTitle { get; set; }
 
-        [StringLength(60, MinimumLength = 3)]
+        [MyValidator]
         public string AchivmentDescription { get; set; }
 
 

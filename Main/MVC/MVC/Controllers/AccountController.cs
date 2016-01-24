@@ -79,6 +79,7 @@ namespace MVC.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    Session["admin"] = model.Email;
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -392,6 +393,7 @@ namespace MVC.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 
