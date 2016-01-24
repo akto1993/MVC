@@ -1,0 +1,42 @@
+﻿@model MVC.Models.Achivment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Achivment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AchivmentTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AchivmentTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AchivmentDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AchivmentDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AchivmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

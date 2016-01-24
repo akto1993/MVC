@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AchivmentsController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -186,8 +187,17 @@
     <Compile Include="Migrations\201601241516177_DataAnnotations.Designer.cs">
       <DependentUpon>201601241516177_DataAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601241846306_wololo.cs" />
+    <Compile Include="Migrations\201601241846306_wololo.Designer.cs">
+      <DependentUpon>201601241846306_wololo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601241930542_tebelki.cs" />
+    <Compile Include="Migrations\201601241930542_tebelki.Designer.cs">
+      <DependentUpon>201601241930542_tebelki.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Achivment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Game.cs" />
@@ -256,6 +266,12 @@
     <Content Include="Views\Games\Details.cshtml" />
     <Content Include="Views\Games\Edit.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Achivments\Create.cshtml" />
+    <Content Include="Views\Achivments\Delete.cshtml" />
+    <Content Include="Views\Achivments\Details.cshtml" />
+    <Content Include="Views\Achivments\Edit.cshtml" />
+    <Content Include="Views\Achivments\Index.cshtml" />
+    <Content Include="Views\Shared\MyOwn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,6 +293,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601241516177_DataAnnotations.resx">
       <DependentUpon>201601241516177_DataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601241846306_wololo.resx">
+      <DependentUpon>201601241846306_wololo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601241930542_tebelki.resx">
+      <DependentUpon>201601241930542_tebelki.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

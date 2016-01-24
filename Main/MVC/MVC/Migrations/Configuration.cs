@@ -22,7 +22,8 @@ namespace MVC.Migrations
                    ReleaseDate = DateTime.Parse("21-02-2015"),
                    Genre = "ActionRPG",
                    Platform = "PS4",
-                    Price = 259
+                   Done = 99,
+                   Price = 259
                },
                new Game
                {
@@ -30,6 +31,7 @@ namespace MVC.Migrations
                    ReleaseDate = DateTime.Parse("21-02-2009"),
                    Genre = "ActionRPG",
                    Platform = "PS4",
+                   Done = 15,
                    Price = 199
                },
                new Game
@@ -38,6 +40,7 @@ namespace MVC.Migrations
                    ReleaseDate = DateTime.Parse("11-09-2015"),
                    Genre = "Racing",
                    Platform = "PS4",
+                   Done = 60,
                    Price = 249
                }
             );

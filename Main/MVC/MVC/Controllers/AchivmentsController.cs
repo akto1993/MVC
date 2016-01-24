@@ -10,129 +10,112 @@ using MVC.Models;
 
 namespace MVC.Controllers
 {
-    public class GamesController : Controller
+    public class AchivmentsController : Controller
     {
         private GameDBContext db = new GameDBContext();
 
-        // GET: Games
-        public ActionResult Index(string gameGenre, string searchString)
+        // GET: Achivments
+        public ActionResult Index()
         {
-            var GenreLst = new List<string>();
-      
-            var GenreQry = from d in db.Games
-                           orderby d.Genre
-                           select d.Genre;
-
-            GenreLst.AddRange(GenreQry.Distinct());
-            ViewBag.gameGenre = new SelectList(GenreLst);
-
-            var games = from m in db.Games
-                         select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                games = games.Where(s => s.Title.Contains(searchString));
-            }
-
-            if (!string.IsNullOrEmpty(gameGenre))
-            {
-                games = games.Where(x => x.Genre == gameGenre);
-            }
-
-            return View(games);
+            var achivments = db.Achivments.Include(a => a.Game);
+            return View(achivments.ToList());
         }
 
-        // GET: Games/Details/5
+        // GET: Achivments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            Achivment achivment = db.Achivments.Find(id);
+            if (achivment == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            return View(achivment);
         }
 
-        // GET: Games/Create
+        // GET: Achivments/Create
         public ActionResult Create()
         {
+            ViewBag.GameID = new SelectList(db.Games, "ID", "Title");
             return View();
         }
 
-        // POST: Games/Create
+        // POST: Achivments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Done,Platform")] Game game)
+        public ActionResult Create([Bind(Include = "AchivmentID,GameID,AchivmentTitle,AchivmentDescription")] Achivment achivment)
         {
             if (ModelState.IsValid)
             {
-                db.Games.Add(game);
+                db.Achivments.Add(achivment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(game);
+            ViewBag.GameID = new SelectList(db.Games, "ID", "Title", achivment.GameID);
+            return View(achivment);
         }
 
-        // GET: Games/Edit/5
+        // GET: Achivments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            Achivment achivment = db.Achivments.Find(id);
+            if (achivment == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            ViewBag.GameID = new SelectList(db.Games, "ID", "Title", achivment.GameID);
+            return View(achivment);
         }
 
-        // POST: Games/Edit/5
+        // POST: Achivments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Done,Platform")] Game game)
+        public ActionResult Edit([Bind(Include = "AchivmentID,GameID,AchivmentTitle,AchivmentDescription")] Achivment achivment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(game).State = EntityState.Modified;
+                db.Entry(achivment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(game);
+            ViewBag.GameID = new SelectList(db.Games, "ID", "Title", achivment.GameID);
+            return View(achivment);
         }
 
-        // GET: Games/Delete/5
+        // GET: Achivments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            Achivment achivment = db.Achivments.Find(id);
+            if (achivment == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            return View(achivment);
         }
 
-        // POST: Games/Delete/5
+        // POST: Achivments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Game game = db.Games.Find(id);
-            db.Games.Remove(game);
+            Achivment achivment = db.Achivments.Find(id);
+            db.Achivments.Remove(achivment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

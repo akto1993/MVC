@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 
@@ -29,13 +30,14 @@ namespace MVC.Models
         [Range(1, 100)]
         public int Done { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
-        [StringLength(4)]
         public string Platform { get; set; }
+
+        public virtual ICollection<Achivment> Achvments { get; set; }
     }
 
     public class GameDBContext : DbContext
     {
         public DbSet<Game> Games { get; set; }
+        public DbSet<Achivment> Achivments { get; set; }
     }
 }
