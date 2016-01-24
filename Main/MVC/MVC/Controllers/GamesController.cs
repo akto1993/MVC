@@ -68,7 +68,7 @@ namespace MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Done")] Game game)
+        public ActionResult Create([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Done,Platform")] Game game)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +100,7 @@ namespace MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Done")] Game game)
+        public ActionResult Edit([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Done,Platform")] Game game)
         {
             if (ModelState.IsValid)
             {

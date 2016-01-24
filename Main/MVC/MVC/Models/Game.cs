@@ -16,6 +16,7 @@ namespace MVC.Models
         public string Genre { get; set; }
         public decimal Price { get; set; }
         public int Done { get; set; }
+        public string Platform { get; set; }
     }
 
     public class GameDBContext : DbContext
