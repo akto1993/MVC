@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201601241300493_Platform.Designer.cs">
       <DependentUpon>201601241300493_Platform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601241516177_DataAnnotations.cs" />
+    <Compile Include="Migrations\201601241516177_DataAnnotations.Designer.cs">
+      <DependentUpon>201601241516177_DataAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -270,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601241300493_Platform.resx">
       <DependentUpon>201601241300493_Platform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601241516177_DataAnnotations.resx">
+      <DependentUpon>201601241516177_DataAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
