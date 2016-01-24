@@ -15,9 +15,31 @@ namespace MVC.Controllers
         private GameDBContext db = new GameDBContext();
 
         // GET: Games
-        public ActionResult Index()
+        public ActionResult Index(string gameGenre, string searchString)
         {
-            return View(db.Games.ToList());
+            var GenreLst = new List<string>();
+
+            var GenreQry = from d in db.Games
+                           orderby d.Genre
+                           select d.Genre;
+
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.gameGenre = new SelectList(GenreLst);
+
+            var games = from m in db.Games
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                games = games.Where(s => s.Title.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(gameGenre))
+            {
+                games = games.Where(x => x.Genre == gameGenre);
+            }
+
+            return View(games);
         }
 
         // GET: Games/Details/5
